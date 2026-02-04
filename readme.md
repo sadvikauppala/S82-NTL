@@ -112,3 +112,15 @@ Firebase Storage provides scalable cloud-based file storage for user-generated c
 Together, these Firebase services solve key backend challenges — secure access, real-time data synchronization, and scalable storage — without requiring server management. Their tight integration with Flutter enables a smooth, responsive, and production-ready mobile experience.
 
 -------
+
+### Translating Figma Design into a Responsive Flutter UI
+
+The Figma prototype was used as a visual blueprint to define layout hierarchy, spacing, and interaction flow rather than fixed pixel dimensions. The goal was to preserve visual consistency while allowing the UI to adapt dynamically across different screen sizes and devices.
+
+In Flutter, the layout was structured using core widgets such as Column and Row to mirror the vertical and horizontal groupings defined in the Figma design. Flexible and Expanded widgets were used to distribute available space proportionally, preventing layout breakage on smaller screens and excessive spacing on larger devices.
+
+MediaQuery was used to access screen dimensions and adjust layout behavior when necessary, ensuring that text, buttons, and content remained readable and usable across devices. This approach avoided rigid width and height values and instead relied on responsive layout principles.
+
+By translating design intent into adaptable widget structures rather than static measurements, the final Flutter UI maintains consistency with the original Figma prototype while remaining responsive and usable on phones, tablets, and across platforms.
+
+------
