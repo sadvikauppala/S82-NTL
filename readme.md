@@ -124,3 +124,11 @@ MediaQuery was used to access screen dimensions and adjust layout behavior when 
 By translating design intent into adaptable widget structures rather than static measurements, the final Flutter UI maintains consistency with the original Figma prototype while remaining responsive and usable on phones, tablets, and across platforms.
 
 ------
+
+### Folder Structure
+lib/
+ ├── main.dart      – Entry point of the application
+ ├── screens/       – Contains full-screen UI widgets (WelcomeScreen, HomeScreen)
+ ├── widgets/       – Reusable UI components like buttons or cards
+ ├── models/        – Data models used in the app (future use)
+ ├── services/      – Business logic and Firebase/API integration (future use)
