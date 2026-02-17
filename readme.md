@@ -1,134 +1,145 @@
-# 🏋️ Gym Occupancy Tracker – Flutter & Firebase
+# 🏋️ Gym Occupancy Tracker – Progress Log (Flutter + Firebase)
 
-## Overview
+## 📌 Project Overview
 
-The Gym Occupancy Tracker is a cross-platform mobile application built using **Flutter** and **Firebase** that provides real-time visibility into gym usage within a housing community. The app helps residents make informed decisions by showing the current number of people in the gym and allows users to update their presence using a simple toggle interaction.
+This project is a Flutter + Firebase mobile app that will track real-time gym occupancy for a housing community.
 
-The goal of this project is to demonstrate Flutter’s widget-based architecture, Dart’s reactive rendering model, and seamless Firebase integration for real-time data updates.
+The goal is to build a simple, real-time mobile experience where users can see how many people are in the gym and toggle their presence.
 
----
-
-## Problem Statement
-
-Residents in large housing communities often face uncertainty and inefficiency due to the lack of visibility into shared gym occupancy. This results in overcrowding, wasted trips, and poor user experience.
+This README reflects the actual development progress so far, not planned features.
 
 ---
 
-## Solution Overview
+## ✅ Current Progress (Completed)
 
-This mobile-first solution uses Flutter for building a responsive and consistent UI across Android and iOS, and Firebase for real-time data synchronization. Users can log in, view the current gym occupancy, and update their entry or exit status. Changes are reflected instantly for all users.
+### 1️⃣ Flutter Environment Setup
 
----
+- Installed Flutter SDK  
+- Verified installation using:
 
-## Flutter Architecture & Reactive UI Model
+```bash
+flutter doctor
+```
 
-Flutter uses a **widget-based architecture**, where every UI element—from text and buttons to entire screens—is represented as a widget. These widgets are organized into a **widget tree**.
+- Confirmed Flutter can run apps in the browser  
 
-Flutter follows a **reactive rendering model**:
-
-- When the underlying data (state) changes, Flutter rebuilds only the widgets that depend on that data.
-- This ensures smooth animations, efficient rendering, and high frame rates.
-
-Because Flutter renders its own UI using the Skia engine rather than relying on native UI components, the app delivers **consistent performance and appearance across both Android and iOS**.
-
----
-
-## StatelessWidget vs StatefulWidget (Using App Examples)
-
-### StatelessWidget
-
-StatelessWidgets are used for UI elements that do not change over time.
-
-**Examples in this app:**
-
-- App title
-- Static labels like “Gym”
-- Icons and layout containers
-
-These widgets are lightweight and efficient because they are built once and do not trigger UI updates.
+**Result:**  
+A working Flutter development environment.
 
 ---
 
-### StatefulWidget
+### 2️⃣ Flutter Project Initialization
 
-StatefulWidgets are used for UI elements that change based on user interaction or data updates.
+Created project using:
 
-**Examples in this app:**
+```bash
+flutter create .
+```
 
-- Gym occupancy count
-- “I’m In / I’m Out” toggle button
+Explored basic Flutter structure:
 
-The gym count is stored in a StatefulWidget. When a user taps the toggle button, the state changes and triggers a UI update.
+- `lib/` → app code  
+- `android/` → Android configuration  
+- `web/` → browser support  
 
----
-
-## Role of `setState()` in UI Updates
-
-The `setState()` method is used to notify Flutter that the state of a widget has changed.
-
-In this app:
-
-- When a user taps the toggle button, `setState()` updates the gym count.
-- Flutter efficiently rebuilds only the affected widgets instead of the entire screen.
-
-This targeted rebuilding ensures smooth performance and responsive interactions.
+**Result:**  
+A runnable Flutter app scaffold.
 
 ---
 
-## Case Study: The Laggy To-Do App (Performance Analysis)
+### 3️⃣ First Flutter Run
 
-In the case study, the To-Do app felt sluggish on iOS due to:
+Successfully ran the default Flutter app using:
 
-- Poor state management
-- State stored too high in the widget tree
-- Unnecessary rebuilding of multiple nested widgets
+```bash
+flutter run -d chrome
+```
 
-These issues caused Flutter to re-render large portions of the UI for small changes, leading to dropped frames and lag.
-
----
-
-## How Flutter Prevents These Issues
-
-Flutter’s reactive rendering model avoids such performance problems by:
-
-- Encouraging localized state management
-- Rebuilding only widgets affected by state changes
-- Maintaining a consistent frame rate across platforms
-
-In this project, the gym occupancy update affects only the count text and toggle button, while the rest of the UI remains unchanged. This results in smooth and predictable UI behavior on both Android and iOS.
+**Result:**  
+Confirmed the frontend environment works.
 
 ---
 
-### Firebase Integration: Real-Time, Scalable, and Reliable Mobile Experience
+### 4️⃣ Firebase Project Setup (Cloud Backend)
 
-Integrating Firebase Authentication, Cloud Firestore, and Firebase Storage significantly enhances the scalability, real-time experience, and reliability of our Flutter mobile application.
+- Created a Firebase project via Firebase Console  
+- Registered Android app using package:
+  `com.example.ntl`  
+- Downloaded `google-services.json`  
+- Added it to:
+  `android/app/google-services.json`  
 
-Firebase Authentication handles secure user sign-up, login, and session persistence, allowing users to remain logged in across app restarts without manual session management. This improves both security and reliability while reducing backend complexity.
+**Result:**  
+A real Firebase backend is created and linked to the app.
 
-Cloud Firestore acts as the real-time data backbone of the app. In our application, shared data such as gym occupancy is stored in Firestore and accessed through real-time listeners. When one user updates the data, the change is instantly synchronized across all connected devices, ensuring a seamless real-time experience without manual refresh logic.
+---
 
-Firebase Storage provides scalable cloud-based file storage for user-generated content such as images. Files are stored separately from structured data, and only their URLs are saved in Firestore. This keeps the database lightweight while enabling efficient and secure media handling.
+### 5️⃣ Firebase Tooling Setup
 
-Together, these Firebase services solve key backend challenges — secure access, real-time data synchronization, and scalable storage — without requiring server management. Their tight integration with Flutter enables a smooth, responsive, and production-ready mobile experience.
+Installed required tools:
 
--------
+- FlutterFire CLI  
+- Firebase CLI  
+- Node.js (dependency for Firebase CLI)  
 
-### Translating Figma Design into a Responsive Flutter UI
+These tools allow Flutter to communicate with Firebase services.
 
-The Figma prototype was used as a visual blueprint to define layout hierarchy, spacing, and interaction flow rather than fixed pixel dimensions. The goal was to preserve visual consistency while allowing the UI to adapt dynamically across different screen sizes and devices.
+---
 
-In Flutter, the layout was structured using core widgets such as Column and Row to mirror the vertical and horizontal groupings defined in the Figma design. Flexible and Expanded widgets were used to distribute available space proportionally, preventing layout breakage on smaller screens and excessive spacing on larger devices.
+### 6️⃣ Flutter ↔ Firebase Linking
 
-MediaQuery was used to access screen dimensions and adjust layout behavior when necessary, ensuring that text, buttons, and content remained readable and usable across devices. This approach avoided rigid width and height values and instead relied on responsive layout principles.
+Ran:
 
-By translating design intent into adaptable widget structures rather than static measurements, the final Flutter UI maintains consistency with the original Figma prototype while remaining responsive and usable on phones, tablets, and across platforms.
+```bash
+flutterfire configure
+```
 
-------
+This:
 
-### Folder Structure
-lib/
- ├── main.dart      – Entry point of the application
- ├── screens/       – Contains full-screen UI widgets (WelcomeScreen, HomeScreen)
- ├── widgets/       – Reusable UI components like buttons or cards
- ├── models/        – Data models used in the app (future use)
- ├── services/      – Business logic and Firebase/API integration (future use)
+- Linked the app to the Firebase project  
+- Generated:
+  `lib/firebase_options.dart`  
+
+**Result:**  
+Flutter is now configured to use Firebase.
+
+---
+
+### 7️⃣ Firebase SDK Installation
+
+Installed core Firebase package:
+
+```bash
+flutter pub add firebase_core
+```
+
+This enables Firebase runtime inside the Flutter app.
+
+---
+
+### 8️⃣ Firebase Initialization in Code
+
+Added Firebase initialization in `main.dart`:
+
+```dart
+await Firebase.initializeApp(
+  options: DefaultFirebaseOptions.currentPlatform,
+);
+```
+
+**Result:**  
+The app now establishes a real connection to Firebase during startup.
+
+---
+
+## ☁️ Current Architecture
+
+```
+Flutter App (Frontend)
+        ↓
+Firebase SDK (Bridge)
+        ↓
+Firebase Cloud Backend
+```
+
+The infrastructure is complete even though features are not yet implemented.
